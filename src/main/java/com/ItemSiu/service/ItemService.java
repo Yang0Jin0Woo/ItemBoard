@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class ItemService {
     private final ItemRepository itemRepository;
 
@@ -18,19 +18,20 @@ public class ItemService {
         this.itemRepository = itemRepository;
     }
 
-    @Transactional
     public void saveItem(Item item){
         itemRepository.save(item);
     }
 
+    @Transactional(readOnly = true)
     public Item findOne(Long id){
         return itemRepository.findById(id);
     }
+
+    @Transactional(readOnly = true)
     public List<Item> findList(){
         return itemRepository.findAll();
     }
 
-    @Transactional
     public void updateItem(Item updateItem, Long id){
         Item item = itemRepository.findById(id);
         if(item != null) {
@@ -39,7 +40,6 @@ public class ItemService {
         }
     }
 
-    @Transactional
     public void deleteItem(Long id){
         Item itemDel=itemRepository.findById(id);
         if(itemDel != null){
