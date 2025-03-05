@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Item 추가하기</title>
+</head>
+<body>
+<h1>Item 추가하기</h1>
+<form th:action="@{/items/add}" method="post">
+  <div>
+    <label for="name">이름:</label>
+    <input type="text" id="name" name="name" required />
+  </div>
+  <div>
+    <label for="content">내용:</label>
+    <textarea id="content" name="content" required></textarea>
+  </div>
+  <div>
+    <button type="submit">생성</button>
+  </div>
+</form>
+<div>
+  <button type="button" th:onclick="|location.href='@{/items}'|">목록</button>
+</div>
+</body>
+</html>

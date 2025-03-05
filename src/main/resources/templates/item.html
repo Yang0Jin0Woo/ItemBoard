@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Item 상세사항</title>
+</head>
+<body>
+<h1>Item 상세사항</h1>
+<div>
+    <label>ID:</label> <span th:text="${item.id}">1</span>
+</div>
+<div>
+    <label>Name:</label> <span th:text="${item.name}">Item Name</span>
+</div>
+<div>
+    <label>Content:</label> <span th:text="${item.content}">Item Content</span>
+</div>
+<div>
+    <button type="button" th:onclick="|location.href='@{/items/{itemId}/edit(itemId=${item.id})}'|">수정</button>
+    <form th:action="@{/items/{itemId}/delete(itemId=${item.id})}" method="post" style="display:inline;">
+        <button type="submit">삭제</button>
+    </form>
+    <button type="button" th:onclick="|location.href='@{/items}'|">목록</button>
+</div>
+</body>
+</html>
