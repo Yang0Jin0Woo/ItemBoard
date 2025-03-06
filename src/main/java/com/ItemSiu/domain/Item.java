@@ -16,7 +16,7 @@ public class Item {
     public Item(){}
 
     public Item(Long id, String name, String content) {
-        id = id;
+        this.id = id;
         this.name = name;
         this.content = content;
     }
@@ -26,7 +26,7 @@ public class Item {
     }
 
     public void setId(Long id) {
-        id = id;
+        this.id = id;
     }
 
     public String getName() {
