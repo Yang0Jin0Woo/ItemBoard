@@ -9,24 +9,24 @@ import jakarta.persistence.Id;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     private String name;
     private String content;
 
     public Item(){}
 
     public Item(Long id, String name, String content) {
-        Id = id;
+        id = id;
         this.name = name;
         this.content = content;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        id = id;
     }
 
     public String getName() {
